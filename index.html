@@ -300,17 +300,17 @@
             data[key] = value;
         });
         let ress = ['Analytical','Practical', 'Customary', 'Creative', 'Social', 'Entrepreneurial'];
-        for (let i = 1; i <= 5; i++) {
+        for (let i = 1; i <= 6; i++) {
             let ans = data['question' + i]?.split(' ')?.[1];
-            res.push({ a: ress[i], b: 25 * (ans - 1) });
+            res.push({ a: ress[i-1], b: 25 * (ans - 1) });
         }
            
-        res.sort((a, b) => { return a.b > b.b ? 1 : a.b < b.b ? -1 : -0 });
+        res.sort((a, b) => { return a.b < b.b ? 1 : a.b > b.b ? -1 : 0 });
         console.log(data);
         console.log('res', res)
         dynamicForm.classList.add('hidden');
         successMessage.innerHTML = `Thank you for taking the quick survey! Based on our initial analysis, you have strong <b>${res[0].a}</b> skills, with <b>${res[1].a}</b> as your secondary skill.
-        <p>For a deeper insight into your strengths and areas for growth, we highly recommend taking this <b><a href=''>detailed skill assessment<a></b>. It will provide you with a comprehensive analysis and personalized recommendations to enhance your expertise!<p>`
+        <p>For a deeper insight into your strengths and areas for growth, we highly recommend taking this <b><a href='https://www.classmarker.com/online-test/start/?quiz=7aj642bc9d7c666f'>detailed skill assessment<a></b>. It will provide you with a comprehensive analysis and personalized recommendations to enhance your expertise!<p>`
         successMessage.classList.remove('hidden');
     }
 </script>
